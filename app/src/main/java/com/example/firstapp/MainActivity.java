@@ -1,5 +1,6 @@
 package com.example.firstapp;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,8 +9,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.firstapp.R;
 
@@ -55,5 +59,23 @@ public class MainActivity extends AppCompatActivity {
         }catch( ActivityNotFoundException ex){
             Log.v("ltm","Vous n'avez pas GMap ou système équivalent");
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.item1) {
+            Toast.makeText(this,"ITEM 1", Toast.LENGTH_LONG).show();
+        }else if(item.getItemId()  == R.id.item2) {
+            Toast.makeText(this,"ITEM 2", Toast.LENGTH_LONG).show();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu1, menu);
+
+        return super.onCreateOptionsMenu(menu);
     }
 }
