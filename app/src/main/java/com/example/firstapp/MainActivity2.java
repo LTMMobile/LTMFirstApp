@@ -16,6 +16,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         Toast.makeText(this, "onCreate Activity2", Toast.LENGTH_SHORT).show();
+
         Intent i = getIntent();
         TextView tv = findViewById(R.id.textView2);
         tv.setText(i.getStringExtra("key1"));

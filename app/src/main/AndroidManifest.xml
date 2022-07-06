@@ -9,10 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.firstapp.MainActivity2"  android:parentActivityName=".MainActivity">
+        <activity android:name="com.example.firstapp.MainActivity2"
+            android:parentActivityName=".MainActivity">
         </activity>
 
-        <activity android:name="com.example.firstapp.MainActivity">
+        <activity android:name="com.example.firstapp.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

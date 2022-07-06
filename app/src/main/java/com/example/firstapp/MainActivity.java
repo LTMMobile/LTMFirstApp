@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.firstapp.R;
 
 public class MainActivity extends AppCompatActivity {
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if( data != null ) {
@@ -38,12 +39,12 @@ public class MainActivity extends AppCompatActivity {
         tv.setText("Start ...");
 
         Intent i = new Intent(this, MainActivity2.class );
-        i.putExtra("key1", "param");
+        i.putExtra("key1", "param1");
         startActivityForResult( i, 1);
     }
 
     public void clickBoutonNavigateur( View v ) {
-        Intent i = new Intent( Intent.ACTION_VIEW, Uri.parse("http://www.ltm.fr"));
+        Intent i = new Intent( Intent.ACTION_VIEW, Uri.parse("https://www.zetes.be"));
         try {
             startActivity(i);
         }catch(ActivityNotFoundException ex) {
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickBoutonMap( View v ) {
-        String u = "geo:0,0?q=google+8rueDeLondres+Paris";
+        String u = "geo:0,0?q=zetes+ruedestrasbourg+bruxelles";
         Intent intent = new Intent( Intent.ACTION_VIEW, Uri.parse(u) );
         try {
             startActivity(intent);
