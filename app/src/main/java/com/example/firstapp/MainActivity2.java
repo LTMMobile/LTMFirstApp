@@ -1,5 +1,6 @@
 package com.example.firstapp;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import com.example.firstapp.R;
 
 public class MainActivity2 extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +22,12 @@ public class MainActivity2 extends AppCompatActivity {
         Intent i = getIntent();
         TextView tv = findViewById(R.id.textView2);
         tv.setText(i.getStringExtra("key1"));
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        //....
     }
 
     @Override

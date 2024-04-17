@@ -18,7 +18,6 @@ import android.widget.Toast;
 import com.example.firstapp.R;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if( data != null ) {
@@ -32,19 +31,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle("Titre de l'activité");
     }
 
     public void clickButtonStartActivity( View v) {
-        TextView tv = findViewById(R.id.textView1);
-        tv.setText("Start ...");
+        //TextView tv = findViewById(R.id.textView1);
+        //tv.setText("Start ...");
 
         Intent i = new Intent(this, MainActivity2.class );
         i.putExtra("key1", "param1");
-        startActivityForResult( i, 1);
+
+        startActivity(i);
+        //startActivityForResult( i, 1);
     }
 
     public void clickBoutonNavigateur( View v ) {
-        Intent i = new Intent( Intent.ACTION_VIEW, Uri.parse("https://www.zetes.be"));
+        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.orsys.fr"));
         try {
             startActivity(i);
         }catch(ActivityNotFoundException ex) {
@@ -53,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickBoutonMap( View v ) {
-        String u = "geo:0,0?q=zetes+ruedestrasbourg+bruxelles";
+        String u = "geo:0,0?q=orsys+grandearchedeladefense";
         Intent intent = new Intent( Intent.ACTION_VIEW, Uri.parse(u) );
         try {
             startActivity(intent);
@@ -68,15 +70,24 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"ITEM 1", Toast.LENGTH_LONG).show();
         }else if(item.getItemId()  == R.id.item2) {
             Toast.makeText(this,"ITEM 2", Toast.LENGTH_LONG).show();
+        }else if(item.getItemId()  == 0) {
+            Toast.makeText(this,"NULL", Toast.LENGTH_LONG).show();
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu1, menu);
+    // Attache le menu à l'activité
 
+    @Override
+    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
+        getMenuInflater().inflate(R.menu.menu1, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
+    /*@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu1, menu);
+        return super.onCreateOptionsMenu(menu);
+    }*/
 }

@@ -4,8 +4,11 @@
 
     <item
         android:id="@+id/item1"
-        android:title="Choix 1" />
+        android:title="Choix 1"/>
     <item
         android:id="@+id/item2"
         android:title="Choix 2" />
+
+    <item
+        android:title="Choix 3" />
 </menu>
